@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>UMMA | University Mobile Management Agent</title>
+    <meta name="description" content="UMMA technical project page for robot architecture, hardware, software, media, and team records.">
+    <link rel="stylesheet" href="src/styles/site.css">
+  </head>
+  <body data-click-depth="3">
+    <header class="site-header">
+      <a class="brand-link" href="#overview" aria-label="UMMA overview">
+        <img src="public/assets/brand/umma-logo-dark.svg" alt="UMMA">
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#system">System</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#software">Software</a>
+        <a href="#media">Media</a>
+        <a href="#team">Team</a>
+      </nav>
+    </header>
+
+    <main>
+      <svg class="icon-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icon-github" viewBox="0 0 24 24">
+          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56v-2.02c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.39-5.25 5.68.43.37.78 1.09.78 2.21v3.25c0 .31.21.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+        </symbol>
+        <symbol id="icon-homepage" viewBox="0 0 24 24">
+          <path d="M3 10.8 12 3l9 7.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M5.5 9.5V21h13V9.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M9.5 21v-6h5v6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24">
+          <path d="M5.16 8.84H1.74v12.4h3.42V8.84ZM5.46 5a2.02 2.02 0 0 0-2.01-2 2.02 2.02 0 0 0-2.03 2 2 2 0 0 0 2.03 1.99A2 2 0 0 0 5.46 5ZM22.58 14.12c0-3.66-1.95-5.36-4.56-5.36a3.93 3.93 0 0 0-3.55 1.95h-.05V8.84h-3.28v12.4h3.42v-6.13c0-1.62.31-3.18 2.31-3.18 1.97 0 1.99 1.84 1.99 3.28v6.03h3.42v-7.12h.3Z"/>
+        </symbol>
+      </svg>
+      <section class="hero" id="overview" aria-labelledby="hero-title">
+        <img class="hero-media" src="public/assets/photos/umma-appearance.jpg" alt="UMMA assembled robot">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Yonsei Creative Product Design · Mobile Manipulator</p>
+          <h1 id="hero-title">UMMA</h1>
+          <p class="hero-copy">
+            ROS 2 기반 자율 이동 플랫폼, 매니퓰레이터, 웹 관제, 모바일 조작, CAD 제작 자료를 연결한 기술 프로젝트 페이지입니다.
+          </p>
+          <div class="hero-actions" aria-label="Fast access">
+            <a href="#system">System</a>
+            <a href="#hardware">Hardware</a>
+            <a href="#media">Media</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="system" aria-labelledby="system-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2 id="system-title">System</h2>
+          </div>
+          <div class="system-layout">
+            <a class="detail-card system-card" data-detail-card href="details/system.html">
+              <span class="card-kicker">Full Architecture</span>
+              <h3>ROS 2 Robot Stack</h3>
+              <p>Edge device, ROS 2 packages, motor drivers, Arduino bridges, camera, LiDAR, web API, mobile control의 연결 구조.</p>
+              <span class="detail-action">Open detail</span>
+            </a>
+            <div class="system-diagram" aria-label="UMMA system architecture">
+              <div class="system-node">Edge Device <span>Ubuntu · ROS 2</span></div>
+              <div class="system-node">UMMA_WS <span>Control · autonomy</span></div>
+              <div class="system-node">Web UI <span>Monitoring · operation</span></div>
+              <div class="system-node">Mobile App <span>IMU teleoperation</span></div>
+              <div class="system-node">Hardware <span>CAD · fabrication</span></div>
+              <div class="system-node">Safety <span>E-stop · command gates</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface" id="hardware" aria-labelledby="hardware-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2 id="hardware-title">Hardware</h2>
+          </div>
+          <div class="feature-grid">
+            <a class="feature-card image-card" data-detail-card href="details/assembled-robot.html">
+              <img src="public/assets/photos/umma-appearance.jpg" alt="UMMA assembled hardware">
+              <div>
+                <span class="card-kicker">Hardware</span>
+                <h3>Assembled Robot</h3>
+                <p>전체 조립체와 모듈 배치.</p>
+              </div>
+            </a>
+            <a class="feature-card" data-detail-card href="details/gripper.html">
+              <span class="card-kicker">Manipulator</span>
+              <h3>Gripper</h3>
+              <p>Granular jamming mechanism을 이용한 형상 적응형 소프트 그리퍼.</p>
+              <span class="detail-action">Open detail</span>
+            </a>
+            <a class="feature-card" data-detail-card href="details/umma-hardware.html">
+              <span class="card-kicker">Repository</span>
+              <h3>UMMA-Hardware</h3>
+              <p>CAD, drawings, fabrication references, hardware image archive.</p>
+              <span class="detail-action">Open detail</span>
+            </a>
+            <a class="feature-card" data-detail-card href="details/control-hardware.html">
+              <span class="card-kicker">Electronics</span>
+              <h3>Control Hardware</h3>
+              <p>Edge device, Arduino, motor driver, sensors, power modules.</p>
+              <span class="detail-action">Open detail</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="software" aria-labelledby="software-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2 id="software-title">Software</h2>
+          </div>
+          <div class="repo-grid">
+            <a class="repo-card" data-detail-card href="details/umma-ws.html">
+              <span>ROS 2</span>
+              <h3>UMMA_WS</h3>
+              <p>Robot control, autonomy, perception, mission, hardware interface workspace.</p>
+              <span class="repo-links">GitHub · Details</span>
+            </a>
+            <a class="repo-card" data-detail-card href="details/web-frontend.html">
+              <span>Web</span>
+              <h3>UMMA-Web-Frontend</h3>
+              <p>Web-based monitoring and remote operation frontend.</p>
+              <span class="repo-links">GitHub · Details</span>
+            </a>
+            <a class="repo-card" data-detail-card href="details/mobile-app.html">
+              <span>Android</span>
+              <h3>UMMA-App</h3>
+              <p>Mobile app for IMU-based manipulator teleoperation.</p>
+              <span class="repo-links">GitHub · Details</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface" id="media" aria-labelledby="media-title">
+        <div class="section-inner">
+          <div class="section-head split">
+            <h2 id="media-title">Media</h2>
+            <div class="filter-bar" aria-label="Media filters">
+              <button class="filter-button active" type="button" data-filter="all">All</button>
+              <button class="filter-button" type="button" data-filter="robot">Robot</button>
+              <button class="filter-button" type="button" data-filter="cad">CAD</button>
+              <button class="filter-button" type="button" data-filter="test">Tests</button>
+            </div>
+          </div>
+          <div class="media-grid">
+            <div class="media-card video-card" data-category="test">
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/kt8CM3tcnwI" title="UMMA 3rd presentation video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div>
+                <span>Presentation</span>
+                <h3>3rd Presentation Video</h3>
+              </div>
+            </div>
+            <a class="media-card" data-detail-card data-category="robot" href="details/assembled-umma.html">
+              <img src="public/assets/photos/umma-appearance.jpg" alt="UMMA robot photo">
+              <div>
+                <span>Robot</span>
+                <h3>Assembled UMMA</h3>
+                <p>전체 조립체 대표 이미지.</p>
+              </div>
+            </a>
+            <a class="media-card text-media" data-detail-card data-category="cad" href="details/cad-gallery.html">
+              <div>
+                <span>CAD</span>
+                <h3>CAD Gallery</h3>
+                <p>렌더, 조립 이미지, 도면 preview.</p>
+              </div>
+            </a>
+            <a class="media-card text-media" data-detail-card data-category="test" href="details/operation-videos.html">
+              <div>
+                <span>Tests</span>
+                <h3>Operation Videos</h3>
+                <p>구동, 파지, 주행, UI 연동 영상.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section surface" id="team" aria-labelledby="team-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2 id="team-title">Team</h2>
+          </div>
+          <div class="team-grid">
+            <article class="team-card">
+              <h3>박성현<br><span class="team-name-en">Park, Sunghyun</span></h3>
+              <p class="team-info">Yonsei University Mechanical Engineering 21</p>
+              <div class="person-links">
+                <a href="https://github.com/edipark" aria-label="Park, Sunghyun GitHub"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg></a>
+                <a href="#" aria-label="Park, Sunghyun homepage" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-homepage"></use></svg></a>
+                <a href="https://www.linkedin.com/in/sunghyun-park-a141bb332/" aria-label="Park, Sunghyun LinkedIn"><svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <h3>이찬희<br><span class="team-name-en">Lee, Chanhui</span></h3>
+              <p class="team-info">Yonsei University Mechanical Engineering & Computer Science 21</p>
+              <div class="person-links">
+                <a href="https://github.com/chanhuirobot" aria-label="Lee, Chanhui GitHub"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg></a>
+                <a href="#" aria-label="Lee, Chanhui homepage" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-homepage"></use></svg></a>
+                <a href="#" aria-label="Lee, Chanhui LinkedIn" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <h3>전형준<br><span class="team-name-en">Jeon, Hyungjoon</span></h3>
+              <p class="team-info">Yonsei University Mechanical Engineering & Computer Science 21</p>
+              <div class="person-links">
+                <a href="https://github.com/jehyjo" aria-label="Jeon, Hyungjoon GitHub"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg></a>
+                <a href="#" aria-label="Jeon, Hyungjoon homepage" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-homepage"></use></svg></a>
+                <a href="https://www.linkedin.com/in/jeonhyungjoon/" aria-label="Jeon, Hyungjoon LinkedIn"><svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <h3>정희원<br><span class="team-name-en">Jeong, Heewon</span></h3>
+              <p class="team-info">Yonsei University Mechanical Engineering 21</p>
+              <div class="person-links">
+                <a href="https://github.com/chrisheewon" aria-label="Jeong, Heewon GitHub"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg></a>
+                <a href="#" aria-label="Jeong, Heewon homepage" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-homepage"></use></svg></a>
+                <a href="#" aria-label="Jeong, Heewon LinkedIn" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <h3>황서현<br><span class="team-name-en">Hwang, Seohyun</span></h3>
+              <p class="team-info">Yonsei University Astronomy & Mechanical Engineering 22</p>
+              <div class="person-links">
+                <a href="https://github.com/imzzimooo" aria-label="Hwang, Seohyun GitHub"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg></a>
+                <a href="#" aria-label="Hwang, Seohyun homepage" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-homepage"></use></svg></a>
+                <a href="#" aria-label="Hwang, Seohyun LinkedIn" aria-disabled="true" tabindex="-1"><svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>UMMA · University Mobile Management Agent</span>
+      <a href="#overview">Back to top</a>
+    </footer>
+
+    <script src="src/scripts/site.js"></script>
+  </body>
+</html>

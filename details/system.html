@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>UMMA System Detail</title>
+    <link rel="stylesheet" href="../src/styles/site.css">
+  </head>
+  <body class="detail-body">
+    <header class="detail-header">
+      <a class="back-link" href="../index.html#system">Back</a>
+    </header>
+    <main class="detail-page">
+      <section class="detail-hero">
+        <h1>ROS 2 Robot Stack</h1>
+        <p>
+          Edge device, ROS 2 packages, motor drivers, Arduino bridges, camera, LiDAR, web API, and mobile control are connected as one robot operation stack.
+        </p>
+        <div class="detail-links">
+          <a href="https://github.com/UMMA-yonsei/UMMA_WS">ROS Workspace</a>
+          <a href="https://github.com/UMMA-yonsei/UMMA-Web-Frontend">Web Frontend</a>
+          <a href="https://github.com/UMMA-yonsei/UMMA-App">Mobile App</a>
+        </div>
+      </section>
+
+      <section class="detail-grid">
+        <article>
+          <h2>Data Flow</h2>
+          <p>Operator UI, REST command bridge, ROS topic/service interface, low-level controller가 단계적으로 연결됩니다.</p>
+          <ul>
+            <li>Browser or Android app sends operation request</li>
+            <li>`umma_web_ui` validates session and command policy</li>
+            <li>ROS bridge publishes topics or calls services</li>
+            <li>Motor, Arduino, servo, speaker, camera nodes execute hardware behavior</li>
+          </ul>
+        </article>
+        <article>
+          <h2>Safety Layer</h2>
+          <p>Command gates, emergency stop state, zero velocity command, actuator stop command가 운용 경로에 포함됩니다.</p>
+        </article>
+        <article>
+          <h2>Diagram Area</h2>
+          <p>ROS graph, topic map, hardware wiring diagram, API command map 이미지를 연결합니다.</p>
+          <div class="asset-row">
+            <span>diagrams/system-map.svg</span>
+            <span>diagrams/ros-topics.png</span>
+            <span>diagrams/hardware-flow.png</span>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
