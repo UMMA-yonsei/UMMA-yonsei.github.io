@@ -36,6 +36,7 @@ const requiredSections = [
   'system',
   'hardware',
   'software',
+  'demo',
   'media',
   'team',
 ];
@@ -104,6 +105,7 @@ assert(!/Creative Product Design 2026 Spring, Section 1 Team 1/i.test(html), 'Te
 assert(html.includes('<h2 id="system-title">System</h2>'), 'System section needs a single System heading');
 assert(html.includes('<h2 id="hardware-title">Hardware</h2>'), 'Hardware section needs a single Hardware heading');
 assert(html.includes('<h2 id="software-title">Software</h2>'), 'Software section needs a single Software heading');
+assert(html.includes('<h2 id="demo-title">Demo</h2>'), 'Demo section needs a single Demo heading');
 assert(html.includes('<h2 id="media-title">Media</h2>'), 'Media section needs a single Media heading');
 assert(html.includes('<h2 id="team-title">Team</h2>'), 'Team section needs a single Team heading');
 for (const page of cardDetailPages) {
@@ -148,6 +150,8 @@ assert(!/box-shadow:[^;]*rgba\([^)]*,\s*0\.(0[5-9]|[1-9])\)/.test(css), 'Box sha
 assert(!/border:\s*1px\s+solid\s+var\(--line\)/.test(css), 'Avoid heavy all-around borders');
 assert(html.includes('https://www.youtube.com/embed/kt8CM3tcnwI'), 'Third presentation YouTube embed is missing');
 assert(html.includes('title="UMMA 3rd presentation video"'), 'YouTube embed needs an accessible title');
+assert(html.includes('https://www.youtube-nocookie.com/embed/mRAA-HTJxhM'), 'Door Opening demo YouTube embed is missing');
+assert(html.includes('title="UMMA door opening demo"'), 'Door Opening demo embed needs an accessible title');
 assert(js.includes('filterMedia'), 'Media filtering behavior is missing');
 
 console.log('Site validation passed');
