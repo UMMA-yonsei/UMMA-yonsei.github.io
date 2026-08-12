@@ -150,8 +150,24 @@ assert(!/box-shadow:[^;]*rgba\([^)]*,\s*0\.(0[5-9]|[1-9])\)/.test(css), 'Box sha
 assert(!/border:\s*1px\s+solid\s+var\(--line\)/.test(css), 'Avoid heavy all-around borders');
 assert(html.includes('https://www.youtube.com/embed/kt8CM3tcnwI'), 'Third presentation YouTube embed is missing');
 assert(html.includes('title="UMMA 3rd presentation video"'), 'YouTube embed needs an accessible title');
-assert(html.includes('https://www.youtube-nocookie.com/embed/mRAA-HTJxhM'), 'Door Opening demo YouTube embed is missing');
-assert(html.includes('title="UMMA door opening demo"'), 'Door Opening demo embed needs an accessible title');
+const demoVideos = [
+  ['mRAA-HTJxhM', 'UMMA door opening demo'],
+  ['w2BMCpExawA', 'UMMA demo video 02'],
+  ['FaaB_bcvsKI', 'UMMA demo video 03'],
+  ['f7eXuc3Ia98', 'UMMA demo video 04'],
+];
+for (const [videoId, title] of demoVideos) {
+  assert(html.includes(`https://www.youtube-nocookie.com/embed/${videoId}`), `Demo YouTube embed is missing: ${videoId}`);
+  assert(html.includes(`title="${title}"`), `Demo embed needs an accessible title: ${videoId}`);
+}
+assert((html.match(/class="demo-card"/g) || []).length === 4, 'Demo section should contain four ordered video cards');
+assert(html.includes('youtube-nocookie.com/embed/lkpkr6ZK67k?autoplay=1'), 'Hero introduction background video is missing');
+assert(html.includes('data-intro-open'), 'Introduction video trigger is missing');
+assert(html.includes('data-hero-video'), 'Introduction background video hook is missing');
+assert(html.includes('data-intro-dialog'), 'Introduction video dialog is missing');
+assert(html.includes('title="UMMA robot introduction video"'), 'Introduction video needs an accessible title');
+assert(js.includes('openIntroVideo'), 'Introduction video dialog behavior is missing');
+assert(js.includes('syncHeroBackgroundVideo'), 'Reduced-motion background video behavior is missing');
 assert(js.includes('filterMedia'), 'Media filtering behavior is missing');
 
 console.log('Site validation passed');

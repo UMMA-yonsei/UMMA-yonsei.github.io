@@ -87,6 +87,7 @@ a {
 
 .primary-nav a,
 .hero-actions a,
+.hero-actions button,
 .detail-links a,
 .back-link,
 .text-link {
@@ -103,6 +104,7 @@ a {
 .primary-nav a:hover,
 .primary-nav a.active,
 .hero-actions a:hover,
+.hero-actions button:hover,
 .detail-links a:hover,
 .back-link:hover,
 .text-link:hover {
@@ -126,9 +128,29 @@ a {
   object-fit: cover;
 }
 
+.hero-video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-video iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-width: 177.78vh;
+  min-height: 100%;
+  border: 0;
+  transform: translate(-50%, -50%);
+}
+
 .hero-shade {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     linear-gradient(90deg, rgba(5, 7, 9, 0.92), rgba(5, 7, 9, 0.64), rgba(5, 7, 9, 0.18)),
     linear-gradient(0deg, rgba(5, 7, 9, 0.9), rgba(5, 7, 9, 0.12) 54%, rgba(5, 7, 9, 0.34));
@@ -169,9 +191,97 @@ a {
 }
 
 .hero-actions a,
+.hero-actions button,
 .detail-links a {
   color: var(--text);
   background: rgba(96, 216, 246, 0.1);
+}
+
+.hero-actions button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.hero-actions .intro-button {
+  color: #041014;
+  background: var(--cyan);
+}
+
+.hero-actions .intro-button:hover {
+  color: #041014;
+  background: #8ce6fb;
+}
+
+.video-dialog {
+  width: min(1080px, calc(100% - 32px));
+  max-width: none;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--surface-soft);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.04);
+}
+
+.video-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.video-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+}
+
+.video-dialog-head span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--cyan);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.video-dialog-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.video-dialog-close {
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.video-dialog-close:hover {
+  background: rgba(96, 216, 246, 0.12);
+}
+
+.video-dialog-frame {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-dialog-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+body:has(.video-dialog[open]) {
+  overflow: hidden;
 }
 
 .section {
@@ -676,5 +786,15 @@ a {
 
   .site-footer {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-video {
+    display: none;
   }
 }

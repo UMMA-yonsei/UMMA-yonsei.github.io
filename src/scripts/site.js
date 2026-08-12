@@ -1,6 +1,48 @@
 const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
 const mediaCards = Array.from(document.querySelectorAll('.media-card'));
 const navLinks = Array.from(document.querySelectorAll('.primary-nav a'));
+const introOpenButton = document.querySelector('[data-intro-open]');
+const introDialog = document.querySelector('[data-intro-dialog]');
+const introCloseButton = document.querySelector('[data-intro-close]');
+const introPlayer = document.querySelector('[data-intro-player]');
+const heroVideo = document.querySelector('[data-hero-video]');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function syncHeroBackgroundVideo() {
+  if (!heroVideo) return;
+  heroVideo.src = reducedMotion.matches ? 'about:blank' : heroVideo.dataset.src || 'about:blank';
+}
+
+syncHeroBackgroundVideo();
+reducedMotion.addEventListener?.('change', syncHeroBackgroundVideo);
+
+function openIntroVideo() {
+  if (!introDialog || !introPlayer) return;
+
+  if (typeof introDialog.showModal !== 'function') {
+    window.open('https://youtu.be/lkpkr6ZK67k', '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  introPlayer.src = introPlayer.dataset.src || 'about:blank';
+  introDialog.showModal();
+}
+
+function closeIntroVideo() {
+  if (!introDialog || !introPlayer) return;
+
+  introDialog.close();
+  introPlayer.src = 'about:blank';
+}
+
+introOpenButton?.addEventListener('click', openIntroVideo);
+introCloseButton?.addEventListener('click', closeIntroVideo);
+introDialog?.addEventListener('click', (event) => {
+  if (event.target === introDialog) closeIntroVideo();
+});
+introDialog?.addEventListener('close', () => {
+  if (introPlayer) introPlayer.src = 'about:blank';
+});
 
 function filterMedia(category) {
   mediaCards.forEach((card) => {
