@@ -6,11 +6,44 @@ const introDialog = document.querySelector('[data-intro-dialog]');
 const introCloseButton = document.querySelector('[data-intro-close]');
 const introPlayer = document.querySelector('[data-intro-player]');
 const heroVideo = document.querySelector('[data-hero-video]');
+const heroLocalVideo = document.querySelector('[data-hero-local-video]');
+const heroLocalSource = heroLocalVideo?.querySelector('source[data-src]');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let heroLocalState = heroLocalSource ? 'pending' : 'missing';
+
+function showYouTubeBackground() {
+  if (!heroVideo) return;
+  heroVideo.src = heroVideo.dataset.src || 'about:blank';
+}
+
+// Prefer the self-hosted clip; fall back to the YouTube embed when the file is absent.
+function loadHeroLocalVideo() {
+  heroLocalState = 'loading';
+  heroLocalSource.addEventListener('error', () => {
+    heroLocalState = 'missing';
+    heroLocalVideo.classList.remove('is-ready');
+    if (!reducedMotion.matches) showYouTubeBackground();
+  }, { once: true });
+  heroLocalVideo.addEventListener('loadeddata', () => {
+    heroLocalState = 'ready';
+    heroLocalVideo.classList.add('is-ready');
+    if (heroVideo) heroVideo.src = 'about:blank';
+    if (!reducedMotion.matches) heroLocalVideo.play().catch(() => {});
+  }, { once: true });
+  heroLocalSource.src = heroLocalSource.dataset.src;
+  heroLocalVideo.load();
+}
 
 function syncHeroBackgroundVideo() {
-  if (!heroVideo) return;
-  heroVideo.src = reducedMotion.matches ? 'about:blank' : heroVideo.dataset.src || 'about:blank';
+  if (reducedMotion.matches) {
+    heroLocalVideo?.pause();
+    if (heroVideo) heroVideo.src = 'about:blank';
+    return;
+  }
+
+  if (heroLocalState === 'pending') loadHeroLocalVideo();
+  else if (heroLocalState === 'ready') heroLocalVideo.play().catch(() => {});
+  else showYouTubeBackground();
 }
 
 syncHeroBackgroundVideo();

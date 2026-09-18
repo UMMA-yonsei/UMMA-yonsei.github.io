@@ -15,10 +15,10 @@
       </a>
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="#overview">Overview</a>
+        <a href="#demo">Demo</a>
         <a href="#system">System</a>
         <a href="#hardware">Hardware</a>
         <a href="#software">Software</a>
-        <a href="#demo">Demo</a>
         <a href="#media">Media</a>
         <a href="#team">Team</a>
       </nav>
@@ -41,20 +41,86 @@
       <section class="hero" id="overview" aria-labelledby="hero-title">
         <img class="hero-media" src="public/assets/photos/umma-appearance.jpg" alt="UMMA assembled robot">
         <div class="hero-video" aria-hidden="true">
+          <!-- 직접 만든 배경 영상: public/assets/videos/umma.mp4 (파일이 없으면 아래 YouTube 영상으로 대체) -->
+          <video class="hero-local-video" data-hero-local-video muted loop playsinline preload="metadata" poster="public/assets/photos/umma-appearance.jpg" tabindex="-1">
+            <source data-src="public/assets/videos/umma.mp4" type="video/mp4">
+          </video>
           <iframe data-hero-video data-src="https://www.youtube-nocookie.com/embed/lkpkr6ZK67k?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=lkpkr6ZK67k&amp;playsinline=1&amp;rel=0&amp;disablekb=1" src="about:blank" title="UMMA introduction background video" tabindex="-1" allow="autoplay; encrypted-media" loading="eager"></iframe>
         </div>
         <div class="hero-shade"></div>
         <div class="hero-content">
           <p class="eyebrow">Yonsei Creative Product Design · Mobile Manipulator</p>
           <h1 id="hero-title">UMMA</h1>
-          <p class="hero-copy">
-            UMMA Introduction Page
-          </p>
+          <p class="hero-tagline">An autonomous mobile manipulator that patrols campus buildings: it rides elevators, opens doors, and turns off the lights.</p>
           <div class="hero-actions" aria-label="Fast access">
             <button class="intro-button" type="button" data-intro-open aria-haspopup="dialog">▶ Watch Introduction</button>
+            <a href="#demo">Demo</a>
             <a href="#system">System</a>
             <a href="#hardware">Hardware</a>
             <a href="#media">Media</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface" id="demo" aria-labelledby="demo-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <h2 id="demo-title">Demo</h2>
+            <p>Check out our demo videos showcasing UMMA in action!</p>
+          </div>
+          <div class="demo-grid">
+            <article class="demo-card">
+              <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/mRAA-HTJxhM" title="UMMA door opening demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="demo-card-copy">
+                <span class="demo-index">Demo 01</span>
+                <div>
+                  <h3>Door Opening</h3>
+                  <p>UMMA's door opening task demonstration video.</p>
+                </div>
+                <a class="text-link" href="https://youtu.be/mRAA-HTJxhM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/w2BMCpExawA" title="UMMA demo video 02" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="demo-card-copy">
+                <span class="demo-index">Demo 02</span>
+                <div>
+                  <h3>Busted!</h3>
+                  <p>UMMA operates as a security guard by manipulating elevator.</p>
+                </div>
+                <a class="text-link" href="https://youtu.be/w2BMCpExawA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/FaaB_bcvsKI" title="UMMA demo video 03" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="demo-card-copy">
+                <span class="demo-index">Demo 03</span>
+                <div>
+                  <h3>Getting to the classroom</h3>
+                  <p>UMMA gets to the classroom autonomously.</p>
+                </div>
+                <a class="text-link" href="https://youtu.be/FaaB_bcvsKI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+              </div>
+            </article>
+            <article class="demo-card">
+              <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/f7eXuc3Ia98" title="UMMA demo video 04" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="demo-card-copy">
+                <span class="demo-index">Demo 04</span>
+                <div>
+                  <h3>Lights off</h3>
+                  <p>UMMA turns off the lights in the classroom.</p>
+                </div>
+                <a class="text-link" href="https://youtu.be/f7eXuc3Ia98" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -147,70 +213,7 @@
         </div>
       </section>
 
-      <section class="section surface" id="demo" aria-labelledby="demo-title">
-        <div class="section-inner">
-          <div class="section-head">
-            <h2 id="demo-title">Demo</h2>
-            <p>Check out our demo videos showcasing UMMA in action!</p>
-          </div>
-          <div class="demo-grid">
-            <article class="demo-card">
-              <div class="video-frame">
-                <iframe src="https://www.youtube-nocookie.com/embed/mRAA-HTJxhM" title="UMMA door opening demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-              </div>
-              <div class="demo-card-copy">
-                <span class="demo-index">Demo 01</span>
-                <div>
-                  <h3>Door Opening</h3>
-                  <p>UMMA's door opening task demonstration video.</p>
-                </div>
-                <a class="text-link" href="https://youtu.be/mRAA-HTJxhM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-              </div>
-            </article>
-            <article class="demo-card">
-              <div class="video-frame">
-                <iframe src="https://www.youtube-nocookie.com/embed/w2BMCpExawA" title="UMMA demo video 02" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-              </div>
-              <div class="demo-card-copy">
-                <span class="demo-index">Demo 02</span>
-                <div>
-                  <h3>Busted!</h3>
-                  <p>UMMA operates as a security guard by manipulating elevator.</p>
-                </div>
-                <a class="text-link" href="https://youtu.be/w2BMCpExawA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-              </div>
-            </article>
-            <article class="demo-card">
-              <div class="video-frame">
-                <iframe src="https://www.youtube-nocookie.com/embed/FaaB_bcvsKI" title="UMMA demo video 03" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-              </div>
-              <div class="demo-card-copy">
-                <span class="demo-index">Demo 03</span>
-                <div>
-                  <h3>Getting to the classroom</h3>
-                  <p>UMMA gets to the classroom autonomously.</p>
-                </div>
-                <a class="text-link" href="https://youtu.be/FaaB_bcvsKI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-              </div>
-            </article>
-            <article class="demo-card">
-              <div class="video-frame">
-                <iframe src="https://www.youtube-nocookie.com/embed/f7eXuc3Ia98" title="UMMA demo video 04" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-              </div>
-              <div class="demo-card-copy">
-                <span class="demo-index">Demo 04</span>
-                <div>
-                  <h3>Lights off</h3>
-                  <p>UMMA turns off the lights in the classroom.</p>
-                </div>
-                <a class="text-link" href="https://youtu.be/f7eXuc3Ia98" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="media" aria-labelledby="media-title">
+      <section class="section surface" id="media" aria-labelledby="media-title">
         <div class="section-inner">
           <div class="section-head split">
             <h2 id="media-title">Media</h2>
@@ -258,7 +261,7 @@
       </section>
 
 
-      <section class="section surface" id="team" aria-labelledby="team-title">
+      <section class="section" id="team" aria-labelledby="team-title">
         <div class="section-inner">
           <div class="section-head">
             <h2 id="team-title">Team</h2>
